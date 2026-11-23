@@ -1,0 +1,232 @@
+:root {
+  color-scheme: light;
+  --paper: #f7f6ef;
+  --ink: #20221d;
+  --muted: #51564b;
+  --line: #d5d8ca;
+  --green: #d8f38b;
+  --page-width: 72rem;
+  font-family: system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible, .features:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+.site-header, main, .site-footer {
+  width: min(var(--page-width), calc(100% - 2 * clamp(1rem, 5vw, 3rem)));
+  margin-inline: auto;
+}
+
+.site-header {
+  padding-block: 1.5rem;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.wordmark span {
+  width: 1.2rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: inset 0 0 0 0.23rem var(--paper);
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: 29rem;
+  overflow: hidden;
+  padding: clamp(1.5rem, 6vw, 5rem);
+  border-radius: 1.25rem;
+  background: #24291f;
+  color: var(--paper);
+}
+
+.hero-content {
+  max-width: 37rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.hero h1 em {
+  display: block;
+  color: var(--green);
+}
+
+.hero p {
+  max-width: 35ch;
+  margin: 1.25rem 0 1.75rem;
+  color: #e0e6d6;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 3rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 0.45rem;
+  background: var(--green);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #e6ffa5;
+}
+
+.button:focus-visible {
+  outline-color: var(--green);
+}
+
+.hero-art {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 42%;
+  opacity: 0.8;
+  background: radial-gradient(ellipse at 72% 52%, #52683b, transparent 65%);
+  mask-image: linear-gradient(to right, transparent, #000 35%);
+}
+
+.orbit, .orbit-center {
+  position: absolute;
+  top: 52%;
+  left: 69%;
+  border: 1px solid #a7bf79;
+}
+
+.orbit {
+  width: 83%;
+  height: 43%;
+  border-radius: 50%;
+}
+
+.orbit-outer {
+  transform: translate(-50%, -50%) rotate(-32deg);
+}
+
+.orbit-inner {
+  transform: translate(-50%, -50%) rotate(32deg);
+}
+
+.orbit-center {
+  width: 25%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 35% 35%, #c8e290, #60794a 68%, #3b4e31);
+}
+
+.features {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  scroll-margin-top: 1rem;
+}
+
+.features h2 {
+  margin: 0 0 1.4rem;
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-card {
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: #fbfaf5;
+}
+
+.feature-card svg {
+  display: block;
+  width: 2.65rem;
+  height: 2.65rem;
+  padding: 0.55rem;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.feature-card h3 {
+  margin: 1.15rem 0 0.4rem;
+  font-size: 1.125rem;
+}
+
+.feature-card p, .site-footer {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.feature-card p, .site-footer p {
+  margin: 0;
+}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 46rem) {
+  .hero-art {
+    left: 35%;
+    opacity: 0.27;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
